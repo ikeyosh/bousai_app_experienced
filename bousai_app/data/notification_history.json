@@ -1,5 +1,15 @@
 [
   {
+    "timestamp": "2026年05月24日 12:39",
+    "area_name": "藤沢市",
+    "report_time": "2026年05月23日 04:12",
+    "warnings": [],
+    "warning_count": 0,
+    "has_emergency": false,
+    "has_warning": false,
+    "has_advisory": false
+  },
+  {
     "timestamp": "2025年06月10日 19:04",
     "area_name": "藤沢市",
     "report_time": "2025年06月10日 16:46",
