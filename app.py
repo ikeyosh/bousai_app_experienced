@@ -13,7 +13,16 @@ FUJISAWA_DISTRICTS = [
     "遠藤地区", "長後地区", "御所見地区"
 ]
 
-app = Flask(__name__)
+# app.py はプロジェクト直下に置く。
+# 実体（templates / static / data）は bousai_app/ 配下にあるので、そこを参照する。
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+APP_DIR = os.path.join(BASE_DIR, 'bousai_app')
+
+app = Flask(
+    __name__,
+    template_folder=os.path.join(APP_DIR, 'templates'),
+    static_folder=os.path.join(APP_DIR, 'static'),
+)
 app.secret_key = 'your-secret-key-here'
 
 # 管理者認証情報
@@ -30,8 +39,8 @@ WARNING_URL = "https://www.jma.go.jp/bosai/warning/data/warning/140000.json"
 
 # ────────────────────────────────
 # サンプルデータの読み込み
-DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'shelters.json')
-HISTORY_FILE = os.path.join(os.path.dirname(__file__), 'data', 'notification_history.json')
+DATA_FILE = os.path.join(APP_DIR, 'data', 'shelters.json')
+HISTORY_FILE = os.path.join(APP_DIR, 'data', 'notification_history.json')
 
 # 避難所データの読み込み
 try:
